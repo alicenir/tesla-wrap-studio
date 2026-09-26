@@ -37,6 +37,21 @@ Not affiliated with or endorsed by Tesla, Inc.
    instead of failing each remaining model in turn, and pressing the button again
    later picks up where it left off.
 
+## Screenshots
+
+**Pick your exact Tesla**, straight from Tesla's official template list:
+
+![Choose your Tesla](docs/screenshots/choose-your-tesla.png)
+
+**Match your factory paint**, so the wrap works with the panels it doesn't cover:
+
+![Paint color](docs/screenshots/paint-color.png)
+
+**Describe the wrap**, or start from a theme, add optional lettering, and set how busy
+it should be:
+
+![Describe your wrap](docs/screenshots/describe-your-wrap.png)
+
 ## How generation actually works
 
 Rather than generating a wrap from scratch, the app downloads the **real
