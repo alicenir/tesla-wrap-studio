@@ -57,6 +57,40 @@ it should be:
 
 ![Describe your wrap](docs/screenshots/describe-your-wrap.png)
 
+## Loading the wrap into your Tesla
+
+**Download PNG** gives you a file that already meets Tesla's requirements: PNG,
+512–1024 px, no larger than 1 MB, and a filename of 30 characters or fewer using only
+letters, numbers, underscores and spaces. You don't need to edit or resize it. If you used
+**Download all (.zip)**, unzip it first and take the PNG from your vehicle's folder.
+Each wrap only fits the model it was drawn for.
+
+### Option A: Tesla app (no USB needed)
+
+Requires Tesla app **v4.59.0 or later**.
+
+1. Get the PNG onto your phone. Either open this app in the phone's browser and download
+   it there, or send the file from your computer (AirDrop, email, cloud drive, messaging
+   app) and save it to **Photos** or **Files**.
+2. In the Tesla app, go to **Creations → Wrap → Upload** and pick the PNG.
+3. In the car, open **Toybox → Paint Shop → Wraps** and select it.
+
+### Option B: USB drive
+
+1. Format a USB drive as **exFAT**, **FAT32** (MS-DOS FAT on Mac), **ext3** or
+   **ext4**. NTFS is not supported.
+2. Create a folder named exactly `Wraps` at the root of the drive, and copy your PNG
+   files into it.
+3. Make sure the drive has no map or firmware update files on it, which can stop wraps
+   from loading.
+4. Plug it into the car's USB port, then open **Toybox → Paint Shop → Wraps** and
+   select your wrap.
+
+You can load up to **10 wraps from the app and 10 from USB**. If a wrap doesn't appear,
+check the drive format and the `Wraps` folder name first. Tesla's full instructions
+are in the [teslamotors/custom-wraps](https://github.com/teslamotors/custom-wraps#requirements--setup)
+repository.
+
 ## How generation actually works
 
 Rather than generating a wrap from scratch, the app downloads the **real
