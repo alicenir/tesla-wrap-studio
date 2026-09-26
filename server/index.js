@@ -66,5 +66,5 @@ app.get(/^(?!\/api\/).*/, (_req, res) => {
 })
 
 app.listen(PORT, '0.0.0.0', () => {
-  console.log(`Tesla Wrap Studio listening on http://0.0.0.0:${PORT}`)
+  console.log(`Wrap Studio for Tesla listening on http://0.0.0.0:${PORT}`)
 })

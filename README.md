@@ -1,4 +1,4 @@
-# Tesla Wrap Studio
+# Wrap Studio for Tesla
 
 A web app for designing AI-generated custom wraps for your Tesla, built directly on
 top of the official templates and vehicle list from

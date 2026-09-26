@@ -478,7 +478,7 @@ export default function App() {
   return (
     <div className="app">
       <header className="app-header">
-        <h1>Tesla Wrap Studio</h1>
+        <h1>Wrap Studio for Tesla</h1>
         <p>
           Design AI-generated custom wraps using the real{' '}
           <a href="https://github.com/teslamotors/custom-wraps" target="_blank" rel="noreferrer">
