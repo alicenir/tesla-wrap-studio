@@ -144,9 +144,9 @@ function explainQuotaError(modelId: string, detail: string): string {
   if (/limit: 0/.test(detail) || model?.freeTier === 'no') {
     const free = GEMINI_IMAGE_MODELS.find((m) => m.freeTier === 'yes')
     return [
-      `${model?.label ?? modelId} has no free-tier quota on your account, so this request was rejected before it ran.`,
+      `${model?.label ?? modelId} has no quota on your account, so this request was rejected before it ran.`,
       free ? `Switch the Model dropdown to “${free.label}”, which does have a free quota.` : '',
-      'Alternatively, enable billing on your Google Cloud project to use this model.',
+      'Gemini image models require billing: enable it on the Google Cloud project that owns this API key, then try again.',
     ]
       .filter(Boolean)
       .join(' ')

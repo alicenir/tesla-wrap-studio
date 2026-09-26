@@ -41,22 +41,21 @@ export const GEMINI_TEXT_MODELS: GeminiTextModel[] = [
 export const GEMINI_IMAGE_MODELS: GeminiImageModel[] = [
   {
     id: 'gemini-2.5-flash-image',
-    label: 'Nano Banana — free tier',
-    description: 'gemini-2.5-flash-image — best default, low latency, generous free quota',
-    freeTier: 'yes',
+    label: 'Nano Banana',
+    description: 'gemini-2.5-flash-image — best default, low latency, lowest cost',
+    freeTier: 'no',
   },
   {
     id: 'gemini-3-pro-image-preview',
-    label: 'Nano Banana Pro — billing required',
-    description: 'gemini-3-pro-image-preview — best detail, but no free quota',
+    label: 'Nano Banana Pro',
+    description: 'gemini-3-pro-image-preview — best detail, higher cost per image',
     freeTier: 'no',
-    note: 'This model has no free tier — calls fail with a 429 quota error unless billing is enabled on your Google Cloud project.',
   },
   {
     id: 'gemini-3.1-flash-image-preview',
     label: 'Nano Banana 2 (preview)',
     description: 'gemini-3.1-flash-image-preview — newer preview model',
-    freeTier: 'unknown',
-    note: 'Preview model — free-tier availability varies and it may require billing on your account.',
+    freeTier: 'no',
+    note: 'Preview model — Google may change or retire it without notice.',
   },
 ]

@@ -39,6 +39,11 @@ Not affiliated with or endorsed by Tesla, Inc.
 
 ## Screenshots
 
+**Connect your image AI**: choose Gemini or Grok, paste your API key, and pick the image
+model plus the concept model used by AI Wrap Generation:
+
+![Connect your image AI](docs/screenshots/connect-image-ai.png)
+
 **Pick your exact Tesla**, straight from Tesla's official template list:
 
 ![Choose your Tesla](docs/screenshots/choose-your-tesla.png)
