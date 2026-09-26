@@ -61,8 +61,7 @@ This makes two of the trickier requirements structural instead of just prompted:
 
 ## Image providers: Gemini or Grok
 
-Claude's API doesn't generate images (text and vision-input only), so section 1 lets you
-pick one of two image providers. Everything goes through the provider you pick: the wrap
+Section 1 lets you pick one of two image providers. Everything goes through the provider you pick: the wrap
 itself, "AI Wrap Generation" concepts, the on-car preview, and redraws for other models.
 
 > **Both providers need a paid API account.** Neither Gemini's nor Grok's image models
