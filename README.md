@@ -139,14 +139,14 @@ WRAP_PORT=9137 docker compose up -d --build
 Two-stage build: `node:22-alpine` compiles the bundle, then the runtime image installs
 production dependencies only (no Vite, no TypeScript) and runs a small Express server
 to serve the built app. Both stages are multi-arch, so this works on x86 and ARM alike
-— most NAS hardware, Raspberry Pi, Apple Silicon.
+— home servers, Raspberry Pi, Apple Silicon.
 
 No build-time configuration or secrets are needed. API keys are entered in the browser
 at runtime and stored in that browser's `localStorage`. A Gemini key never touches the
 server. A Grok key is relayed through it to xAI with each request but never stored.
 The container needs outbound internet access to `api.x.ai` for Grok.
 
-### Deploying on a NAS with Portainer
+### Deploying with Portainer
 
 1. In Portainer, go to **Stacks → Add stack**, name it `tesla-wrap-studio`, and choose
    **Repository** as the build method.
@@ -161,14 +161,14 @@ The container needs outbound internet access to `api.x.ai` for Grok.
 6. Optionally set `WRAP_PORT` in the **Environment variables** box to any free port
    (defaults to `8095`) — no file editing needed.
 7. Click **Deploy the stack**. The first deploy compiles the bundle, so expect a few
-   minutes on slower NAS hardware; later deploys reuse cached layers.
+   minutes on slower hardware; later deploys reuse cached layers.
 
-The app is then reachable at `http://<nas-ip>:<WRAP_PORT>`. Note that's your NAS's own
+The app is then reachable at `http://<host-ip>:<WRAP_PORT>`. Note that's the Docker host's own
 IP — not the container IP Portainer shows in its container list, which is on Docker's
 internal network and unreachable from the rest of your LAN.
 
 If the deploy fails with a port-allocation error, that port is already in use — pick
-another and redeploy. To see what's taken, SSH into the NAS and run
+another and redeploy. To see what's taken, SSH into the host and run
 `netstat -tuln | grep LISTEN` (or `docker ps` to check other containers).
 
 To pick up later changes, open the stack in Portainer and use **Pull and redeploy**.
