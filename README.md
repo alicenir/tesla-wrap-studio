@@ -119,9 +119,11 @@ any static host, as long as you keep the API-key caveat above in mind.
 
 ## Running with Docker
 
-If you'd rather not install Node at all:
+If you'd rather not install Node at all, all you need is Docker with Compose:
 
 ```bash
+git clone https://github.com/alicenir/tesla-wrap-studio
+cd tesla-wrap-studio
 docker compose up -d --build
 ```
 
@@ -148,14 +150,14 @@ The container needs outbound internet access to `api.x.ai` for Grok.
 
 1. In Portainer, go to **Stacks → Add stack**, name it `tesla-wrap-studio`, and choose
    **Repository** as the build method.
-2. **Repository URL**: `https://github.com/alicenir/Projects`
-3. **Repository reference**: `refs/heads/tesla-wrap-studio` — the production branch
-   for this app. Portainer wants the full ref, not just the branch name. (`main` holds
-   a different project, so don't point this stack at it.)
+2. **Repository URL**: `https://github.com/alicenir/tesla-wrap-studio`
+3. **Repository reference**: `refs/heads/main`. Portainer wants the full ref, not just
+   the branch name.
 4. **Compose path**: `docker-compose.yml`
-5. If the repository is private, switch on **Authentication** and use your GitHub
-   username with a [personal access token](https://github.com/settings/tokens) (scope
-   `repo`) as the password. A normal account password will not work.
+5. Leave **Authentication** off, since the repository is public. If you deploy from a
+   private fork, switch it on and use your GitHub username with a
+   [fine-grained token](https://github.com/settings/personal-access-tokens) (Contents:
+   read-only) as the password. A normal account password will not work.
 6. Optionally set `WRAP_PORT` in the **Environment variables** box to any free port
    (defaults to `8095`) — no file editing needed.
 7. Click **Deploy the stack**. The first deploy compiles the bundle, so expect a few
