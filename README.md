@@ -136,6 +136,34 @@ The host port is configurable without editing `docker-compose.yml` — copy
 WRAP_PORT=9137 docker compose up -d --build
 ```
 
+### Compose file without cloning
+
+Prefer to skip the clone? Save this as `docker-compose.yml` anywhere, or paste it
+into Portainer's **Web editor**. Docker fetches the source from GitHub and builds it
+for you:
+
+```yaml
+services:
+  tesla-wrap-studio:
+    build: https://github.com/alicenir/tesla-wrap-studio.git#main
+    image: tesla-wrap-studio:latest
+    # Rebuild from the latest source on every deploy instead of reusing an old image.
+    pull_policy: build
+    container_name: tesla-wrap-studio
+    ports:
+      - "${WRAP_PORT:-8095}:3000"   # change 8095 to any free host port
+    restart: unless-stopped
+```
+
+```bash
+docker compose up -d --build
+```
+
+Then open `http://localhost:8095`, or use the host's IP from another machine. To pick up
+newer versions later, run the same command again.
+
+### How the image is built
+
 Two-stage build: `node:22-alpine` compiles the bundle, then the runtime image installs
 production dependencies only (no Vite, no TypeScript) and runs a small Express server
 to serve the built app. Both stages are multi-arch, so this works on x86 and ARM alike
