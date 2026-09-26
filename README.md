@@ -65,14 +65,24 @@ Claude's API doesn't generate images (text and vision-input only), so section 1 
 pick one of two image providers. Everything goes through the provider you pick: the wrap
 itself, "AI Wrap Generation" concepts, the on-car preview, and redraws for other models.
 
+> **Both providers need a paid API account.** Neither Gemini's nor Grok's image models
+> are available on a free tier. Without billing enabled, every generation fails with a
+> quota error. Budget for it: **Redraw for all models** makes 11 image calls in one go.
+
 - **Google Gemini** (default): the `gemini-*-image` family ("Nano Banana") plus a Gemini
-  text model for concepts. It has a free tier. Calls go straight from your browser to
-  Google.
+  text model for concepts. Creating a key at
+  [aistudio.google.com/apikey](https://aistudio.google.com/apikey) is free, but image
+  generation only works once **billing is enabled** on the key's Google Cloud project
+  (otherwise you get a `429` with `limit: 0`). It costs roughly $0.03–0.15 per image
+  depending on model and resolution. See
+  [Gemini API pricing](https://ai.google.dev/gemini-api/docs/pricing). Calls go straight
+  from your browser to Google.
 - **xAI Grok**: `grok-imagine-image-2.0` via xAI's `/v1/images/edits` endpoint, which
-  takes the template as an input image, plus `grok-4.7` for concepts. There's no free
-  tier; get a key and add credits at [console.x.ai](https://console.x.ai). It costs
-  roughly $0.04–0.06 per image plus $0.01 per input image. The requested aspect ratio
-  matches each template, so Cybertruck's 4:3 layout isn't squashed into a square.
+  takes the template as an input image, plus `grok-4.7` for concepts. It's prepaid: get
+  a key and add credits at [console.x.ai](https://console.x.ai) before the first
+  request. It costs roughly $0.04–0.06 per image plus $0.01 per input image. The
+  requested aspect ratio matches each template, so Cybertruck's 4:3 layout isn't
+  squashed into a square.
 
 xAI's API can't be called straight from a browser, so Grok requests go through this app's
 own server (`/api/xai/...` in [`server/index.js`](server/index.js)). The server forwards
@@ -87,9 +97,10 @@ npm install
 npm run dev
 ```
 
-Then open the printed local URL. You'll need a free Gemini API key from
-[aistudio.google.com/apikey](https://aistudio.google.com/apikey), or an xAI key for
-Grok. Paste it into the "Connect your image AI" box. Keys are stored only in your
+Then open the printed local URL. You'll need a paid API key: a Gemini key from
+[aistudio.google.com/apikey](https://aistudio.google.com/apikey) with billing enabled,
+or an xAI key with credits for Grok (see
+[Image providers](#image-providers-gemini-or-grok)). Paste it into the "Connect your image AI" box. Keys are stored only in your
 browser's `localStorage`. Gemini keys go straight to Google. Grok keys pass through
 this app's server on their way to xAI (see above), so for Grok also run
 `npm run server` alongside `npm run dev`.
